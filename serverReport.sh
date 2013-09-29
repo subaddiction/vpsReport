@@ -16,8 +16,10 @@ DU_MYSQL=$(du -ah --max-depth 1 /var/lib/mysql/)
 DU_TOTAL="$(df -ah)"
 
 FIREWALL="$(iptables --list)"
-PROCESSES="$(ps aux)"
 CONNECTIONS="$(netstat -nap)"
+TOP="$(top -bc -n1)"
+PSTREE="$(pstree -alcp)"
+#PROCESSES="$(ps aux)"
 
 echo "\n$(hostname) server report\n\n----------------\n\n" >> report.log
 echo "--DISK USAGE--" >> report.log
@@ -37,8 +39,10 @@ echo "\n\n--FIREWALL--------------\n\n" >> report.log
 echo "$FIREWALL" >> report.log
 echo "\n\n--CONNECTIONS--------------\n\n" >> report.log
 echo "$CONNECTIONS" >> report.log
-echo "\n\n--PROCESSES--------------\n\n" >> report.log
-echo "$PROCESSES" >> report.log
+echo "\n\n--STATUS--------------\n\n" >> report.log
+echo "$TOP" >> report.log
+echo "\n\n--PROCESS TREE--------------\n\n" >> report.log
+echo "$PSTREE" >> report.log
 echo "\n\n----------------\n\n" >> report.log
 
 # mail notification
