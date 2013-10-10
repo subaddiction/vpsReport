@@ -19,7 +19,6 @@ FIREWALL=$(iptables --list)
 CONNECTIONS=$(netstat -nap)
 TOP=$(top -bcHS -n1)
 PSTREE=$(pstree -alcp)
-DU_TOTAL="$(df -ah)"
 
 echo "\n$(hostname) server report\n\n----------------\n\n" >> report.log
 echo "--DISK USAGE--" >> report.log
