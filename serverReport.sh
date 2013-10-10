@@ -1,8 +1,13 @@
 #!/bin/bash
 
 #General settings
+<<<<<<< HEAD
 SENDER="root@bquery.com"
 RECIPIENT="mrk25@bquery.com"
+=======
+SENDER="root@localhost"
+RECIPIENT="user@localhost"
+>>>>>>> 976ff3b486f8a44192dcc50a1d534cddf5651e6a
 
 echo "From: $SENDER" > report.log
 echo "To: $RECIPIENT" >> report.log
@@ -13,6 +18,7 @@ DU_WEB=$(du -ah --max-depth 1 /var/www)
 DU_USERS=$(du -ah --max-depth 1 /home)
 DU_LOGS=$(du -ah --max-depth 1 /var/log)
 DU_MYSQL=$(du -ah --max-depth 1 /var/lib/mysql/)
+<<<<<<< HEAD
 DU_TOTAL=$(df -ah)
 
 FIREWALL=$(iptables --list)
@@ -20,6 +26,15 @@ CONNECTIONS=$(netstat -nap)
 TOP=$(top -bcHS -n1)
 PSTREE=$(pstree -alcp)
 #PROCESSES=$(ps aux)
+=======
+DU_TOTAL="$(df -ah)"
+
+FIREWALL="$(iptables --list)"
+CONNECTIONS="$(netstat -nap)"
+TOP="$(top -bc -n1)"
+PSTREE="$(pstree -alcp)"
+#PROCESSES="$(ps aux)"
+>>>>>>> 976ff3b486f8a44192dcc50a1d534cddf5651e6a
 
 echo "\n$(hostname) server report\n\n----------------\n\n" >> report.log
 echo "--DISK USAGE--" >> report.log
